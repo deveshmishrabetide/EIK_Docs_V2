@@ -6,7 +6,32 @@ import { Callout } from 'nextra/components'
  If you want just basic voice chat in your game with matches, we suggest you to use the [Lobby based Voice Chat](/multiplayer/voicechat/lobbybased) instead of this. This is for advanced users who want to control the voice chat in their game as they want and hence also requires a bit of setup
  </Callout>
 
-## Setting up the Voice Chat
+ ## Setting up the Voice Chat in Epic Developer Portal
+
+To use token-based voice chat, you need to create a separate client and voice policy. Token-based chat functions as a distinct EOS feature that can operate independently from other EOS features. You don't need to log in to EOS to use it; you can log in to EOS Voice Chat directly, independent of the account service or game service.
+But to use EIK Positional Voice Chat you will need to use account service to login to EOS and use client PUID as `Player Name` input.
+
+### Adding Client Policy in Epic Developer Portal
+
+Add a new client policy and name it as you wish. Use a custom client policy type to set only the options that we need for Token Voice Chat.
+
+![VoicePolicy](../../../images/VoicePolicy.png)
+
+### Adding Client Policy and Voice Client in Epic Developer Portal
+
+We only need those three policies.
+
+![VoicePolicies](../../../images/VoicePolicies.png)
+
+Now create new Voice Client and use our create policy for it.
+
+![VoiceClient](../../../images/AddingVoiceClient.png)
+
+For the last step, we need to add a separate artifact in our EOS Integration Kit plugin project settings. Use the same name for the `Artifact Name`, and fill in the required inputs as you did for the EIK setup. However, this time for `Client ID` and `Client Secret`, use ours Voice Client.
+
+![VoiceArtifact](../../../images/AddingVoiceArtifact.png)
+
+## Setting up the Voice Chat in Blueprints
 
 `Voice Room Name` - The name of the voice room that you want to join. For instance, if you have a game similar to Pubg or Fortnite, where there are 100 players with teams of 4, then you can have 25 voice rooms with 4 players each. This will allow you to have a voice room for each team.
 
