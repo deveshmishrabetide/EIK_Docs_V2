@@ -252,7 +252,7 @@ const config: DocsThemeConfig = {
   },
   docsRepositoryBase: "https://github.com/deveshmishrabetide/EIK_Docs_V2",
   footer: {
-    text: "Made with ❤️ by Betide Studio",
+    text: "Epic, Epic Games, Epic Games Store, the Epic Games Store logo, and Epic Online Services are trademarks and/or registered trademarks of Epic Games. All other trademarks are the property of their respective owners. ",
   },
   head: (
     <>
