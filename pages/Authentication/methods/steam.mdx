@@ -3,7 +3,7 @@ import { Callout } from 'nextra/components'
 # Authentication with Steam
 
 <Callout type="warning">
-     Steam authentication with app id `480` is no more supported by the EOS SDK now. Make sure you have your own Steam App Id for the authentication to work.
+     Steam authentication with App ID 480 is no longer supported by the EOS SDK. Make sure you have your own Steam App ID for the authentication to work.
 </Callout>
 
 
@@ -54,11 +54,22 @@ SteamDevAppId=[Your Steam ID]
 
 ### Blueprint Implementation
 
-Onto the final step! Now that you have set up the Steam login method in the Epic Developer Portal and your Unreal Engine project, you can start implementing the Steam login method in your project. Here is an example of how you can do this:
+Onto the final step! Now that you have set up the Steam login method in the Epic Developer Portal and your Unreal Engine project, you can start implementing the Steam login method in your project. Here are some examples of how you can do this.
+
+#### Using Connect interface
 
 <br/><br/>
 <iframe src="https://blueprintue.com/render/0c7wrbl8/" scrolling="no" allowfullscreen width="100%" height="400px" border="0"></iframe>
 Cannot view the code? [Click here](https://blueprintue.com/render/0c7wrbl8/)
+
+#### Using Auth interface
+
+![picture 2](../../../images/Loginwithsteamusingauthinterface.png)  
+
+If the user is logging in for the first time with steam, and no epic account is attached, then the user will be prompted to link their account to an Epic Account. This will be a one time process and the user will not be prompted again.
+
+![picture 3](../../../images/LinkingEpicwithSteam.png)  
+
 
 That is it! You have successfully implemented the Steam login method in your Unreal Engine project. Now you can authenticate your users using their Steam account.
 
