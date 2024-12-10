@@ -1,6 +1,6 @@
 import { Callout } from 'nextra/components'
 
-# Plugin Installation 
+# Plugin Installation
 
 Great decision! You're about to install a plugin that will make your life easier. 
 
@@ -63,7 +63,12 @@ Done! You've successfully installed the plugin.
 
 ### Android SDK
 
-Starting EOS SDK V1.16.2, Epic Games doesn't provide the `libEOSSD.so` files for Android. So, we have to extract them from the SDK ourselves. Let's go through the steps.
+<Callout type="warning">
+    The current Android implementation of EIK only supports Android API Level 34 and above because of Google's new API updates, we are trying to make the plugin work on older Android versions as well, but till then, make sure you have the latest Gradle (Tested on 8.5), Android SDK 34 and above, and NDK 26c and above.
+    Make sure you update the SDK/NDK location in your environment variables and Project Settings.
+</Callout>
+
+Starting EOS SDK V1.16.2, Epic Games doesn't provide the `libEOSSDK.so` files for Android. So, we have to extract them from the SDK ourselves. Let's go through the steps.
 
 - From the unzipped SDK folder, navigate to `SDK\Bin\Android\static-stdc++\aar` and extract the `eossdk-StaticSTDC-release.aar` file using an archive manager like 7-Zip.
 
@@ -73,9 +78,11 @@ Starting EOS SDK V1.16.2, Epic Games doesn't provide the `libEOSSD.so` files for
 
 ![picture 11](../../images/309e1ae1450f41d6b5ed86449d998b36bfcc7691afdade8f1b79787fb717795a.png)  
 
-- Copy the **includes** from the extracted files to the `ThirdParty/EIKSDK` folder of the plugin. The new folder structure should look like this :
+- Copy the **includes** from the extracted files to the `Source/ThirdParty/EIKSDK` folder of the plugin. The new folder structure should look like this :
 
 ![picture 12](../../images/aca6e853338dd7cf85b970544becc74c80b3494fd236a9c78e6be0e7555b0db8.png)  
+
+- Then go back to `SDK\Bin\Android\static-stdc++\aar` and copy `eossdk-StaticSTDC-release.aar` to `Plugin\Source\ThirdParty\EIKSDK\Bin` and rename the file as `eos-sdk.aar`
 
 ### iOS SDK
 
