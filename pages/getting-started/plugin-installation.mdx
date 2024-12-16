@@ -4,6 +4,13 @@ import { Callout } from 'nextra/components'
 
 Great decision! You're about to install a plugin that will make your life easier. 
 
+<Callout type="warning">
+    Unfortunately, the Epic Games FAB plugin disrupts the functionality of the EIK plugins. The FAB plugin enables the EOS Shared Engine plugin, while EIK utilizes a custom version, leading to conflicts between the two. This can result in a LNK2005 error during project packaging or prevent EIK from initializing properly.
+
+To resolve this issue for the EIK project, please disable the FAB plugin. This conflict has been addressed in engine version 5.5 and later.
+    ![FAB](../../images/DisabledFAB.png)  
+</Callout>
+
 ## Marketplace Edition
 
 1. Open **Library** in the **Unreal Engine** section of the **Epic Games Launcher**.
