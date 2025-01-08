@@ -1,6 +1,6 @@
-# Authentication with Google on Android
+# Authentication with Google on Android and iOS
 
-Okay Android developers, let's get you set up with Google authentication in your game. I will suggest you to grab a cup of coffee, as this is going to be a long one, but don't worry, I will guide you through the process step by step.
+Okay Android and iOS developers, let's get you set up with Google authentication in your game. I will suggest you to grab a cup of coffee, as this is going to be a long one, but don't worry, I will guide you through the process step by step.
 
 ## Prerequisites and important notes
 
@@ -8,6 +8,8 @@ Okay Android developers, let's get you set up with Google authentication in your
 - Be patient, as this process can be a bit tricky and time-consuming. If you mess up somewhere, you will almost certainly have to start over as debugging this can be a nightmare.
 - If after following this guide you are still facing issues, you will have to start debugging the issue by firstly enabling the logs. Check [here](/extendedlogging) for more information on how to enable logs in shipping builds.
 - If the above logs don't help, connect your device to your computer and check the logs using `adb logcat` to see what is going wrong.
+
+- For iOS, you'll need an Apple Developer account and your Apple Team ID, and you should first make sure that your project compiles and runs on iOS successfully before continuing.
 
 ## Setting up Google Developer Console
 
@@ -23,6 +25,8 @@ Okay Android developers, let's get you set up with Google authentication in your
 
         c. Select the **Android** application type.
 
+        d. Repeat this process and create another credential with **iOS** application type, make sure the Bundle ID and Team ID are correct, you can leave the App Store ID blank for now if your app is not published there yet.
+
 4. On the Credentials page, create a web application client ID if you don't already have one. You can leave the Authorized JavaScript Origins and Authorized redirect URIs fields blank. This client ID represents your authentication backend server. (You would use this client ID when calling Google APIs from your server, but you need it even if you don't.)
         
         a. Go to the Credentials page.
@@ -33,10 +37,11 @@ Okay Android developers, let's get you set up with Google authentication in your
 
 The final product should look something like this:
 
-        ![picture 0](../../../images/5c7390846770462134ce73e3d845acf51ddbc3ca657e96d2c3e34c054eddf608.png)  
+        ![picture 0](../../../images/OAuth2ClientIDs.png)  
 
 ## Setting up your Unreal Engine project
 
+### Android
 1. Go to your Unreal Engine project directory and create a new folder called `Android` under the `Build` folder, if you don't have one already.
 
 2. Copy your keystore file to the `Android` folder.
@@ -45,14 +50,29 @@ The final product should look something like this:
 
 4. On the same page, set the **Android Package Name** to the package name of your app that you used when creating the client ID on the Google Developer Console.
 
-5. Now, under **Project Settings** > **Project** > **Packaging**, set **For Distribution** to true and build configuration to **Shipping**.
+----
 
+### iOS
+
+1. On the Credentials page of your Google Cloud project, open the iOS credential and copy the `Client ID` and `iOS URL scheme`.
+
+2. Then, open your Project, go to `Edit` > `Project Settings` > `EOS Integration Kit` > `EOS Settings` > `Artifact Settings` > `Platform Specific` > `iOS` > `GoogleSignIn`
+
+        a. paste the `Client ID` in `Google Client ID`.
+
+        b. paste the `iOS URL scheme` in `Google Reverse Client ID`.
+
+----
+
+Finally, under **Project Settings** > **Project** > **Packaging**, set **For Distribution** to true and build configuration to **Shipping**.
 
 ### Code Setup
 
+Check out example code setup [here](https://blueprintue.com/blueprint/sky0vphc).
+
 For your login button, you will need to call the `GoogleSignIn` node. Here is an example of how you can set it up:
 
-![picture 1](../../../images/39aa12b14187606e83f1c4a7967d150d0aea7e463b1f6d27c64e97efbc81c3b3.png)  
+![picture 1](../../../images/GoogeLoginNodeSetup.png)  
 
 In the client ID field, you will need to enter the client ID you created on the Google Developer Console. It should be the **WEB APPLICATION** client ID.
 
