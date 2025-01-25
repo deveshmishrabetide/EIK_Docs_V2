@@ -1,3 +1,5 @@
+import { Callout } from 'nextra/components'
+
 # Lobby based Voice Chat with EOS
 
 Prior to version 4 of EOS Integration Kit, voice chat with lobby was not well done, like you could not control stuff. But now it is! You can now control the voice chat in the lobby as you want. This page will guide you on how to set up voice chat with lobby in your game.
@@ -36,11 +38,26 @@ You can now set the output device for the voice chat with `Set Lobby Output Meth
 
 ### Set Player Volume
 
+<Callout type="warning"> 
+    This function is for setting the volume of a player in the lobby. This is not for setting the volume of the local player.
+</Callout>
+
 You can now set the volume of a player with `Set Lobby Player Volume` function:
 
 ![picture 4](../../../images/9a39d563e1f3051027e3083202785046f1d8a627036249512bbef6ef894cd756.png)  
 
 The player name is `UniqueNetId` of the player you want to set the volume for. The volume is a float value between 0 and 1.
+
+### Set Local Player Volume
+
+<Callout type="info"> 
+    EOS will set the volume of the default input/output device to the volume you set for the local player. It's recommended to set the output and input device settings before setting the volume.
+</Callout>
+
+You can now set the input or output volume of the local player with `Set Lobby Voice Chat Input Volume` and `Set Lobby Voice Chat Output Volume` functions:
+
+![picture 6](../../../images/1128b568bd72da4b4c1023a30e3374b77cf1b2f808b0c1aa3f25bcf88db85afd.png)  
+
 
 ### Get Player Volume
 
