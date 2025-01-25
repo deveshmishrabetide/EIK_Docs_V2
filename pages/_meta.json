@@ -28,6 +28,9 @@
     "type": "separator",
     "title": "More"
   },
+  "redistributableinstaller": {
+    "title": "Redistributable Installer"
+  },
   "extendedlogging": {
     "title": "Extended Logging"
   },
