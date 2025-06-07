@@ -24,6 +24,7 @@
     },
     "epicgamesstore" : "Epic Games Store",
     "integrations" : "Integrations",
+    "billing": "Billing",
   "---": {
     "type": "separator",
     "title": "More"
