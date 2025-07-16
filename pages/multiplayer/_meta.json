@@ -8,6 +8,9 @@
     "dedicatedservers" : {
         "title" : "Dedicated Servers"
     },
+    "edgegap" : {
+        "title" : "Edgegap Integration"
+    },
     "friends": {
         "title": "Friends"
     },
@@ -26,8 +29,5 @@
     },
     "anti-cheat" : {
         "title" : "Anti-Cheat"
-    },
-    "edgegap" : {
-        "title" : "Edgegap Integration"
     }
 }
