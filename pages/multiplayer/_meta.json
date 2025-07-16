@@ -26,5 +26,8 @@
     },
     "anti-cheat" : {
         "title" : "Anti-Cheat"
+    },
+    "edgegap" : {
+        "title" : "Edgegap Integration"
     }
 }

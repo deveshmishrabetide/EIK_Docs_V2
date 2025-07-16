@@ -1,0 +1,43 @@
+# Edgegap Integration
+
+Edgegap is a cloud-based game server hosting platform that provides low-latency, globally distributed game servers. The EIK Edgegap plugin allows you to seamlessly integrate Edgegap's hosting services with your EOS-powered game.
+
+![Edgegap Integration](https://pbs.twimg.com/media/GXxedMWWoAEinKd?format=jpg&name=large)
+
+## Key Features
+
+### Infrastructure & Performance
+- **Global Deployment**: 100+ edge locations across major cloud providers (AWS, Google Cloud, Azure)
+- **Ultra-Low Latency**: Sub-50ms connections for competitive gameplay
+- **Auto-Scaling**: Dynamic server scaling based on player demand with intelligent load balancing
+- **Container-Based**: Lightweight deployment with efficient resource usage
+
+## EdgeGap Integration Kit 
+
+We have made a plugin, which is sponsored by the Edgegap Team, which makes integrating with Edgegap a few minutes work :D
+
+The plugin is available for free at :
+
+- **Fab** - https://www.fab.com/listings/ff17ad88-12a1-49cf-9a41-31695ed11e16
+- **Github** - https://github.com/betidestudio/EdgegapIntegrationKit
+
+
+## Integration with EGIK
+
+Integrating EGIK with EIK is pretty straightforward
+
+1. Setup EOS Dedicated Servers as per [this doc](http://localhost:3001/multiplayer/dedicatedservers/configuration)
+2. Setup Edgegap Integration kit using, either this [video](https://youtu.be/xNQu-lAssRY) or [this doc](https://egik.betide.studio/servers/deployment)
+3. Finally, deploy the servers on the Edgegap platform, and you should be able to connect.
+
+## Important Notes
+
+1. There are three ways to use EGIK + EOS:
+
+- first is either you make a dedicated server, deploy a server using the Edgegap's website and connect to the IP or use the Find EIK Sessions (if you made a session on the dedicated server, so this means you need the server to be running to create a EOS Session). This is the easist and striaghtforward usage.
+- Second is you use the Edgegap's API to deploy a server (available in EGIK too), this is a better option if you want to find, join and create dedicated servers directly. We have covered this approach [in this video](https://youtu.be/PJeciwR4e7g?si=hv4slShFu6RSBI_M)
+- Third is you use the Edgegap's Matchmaker, which scales the server as and when required and you can have one of the best matchmaking solutions. We have covered this approach [in this video](https://youtu.be/2ow6rPnEsxM?si=Lms_UEQrA8jWj7ZT)
+
+2. You can also use [Team Matchmaking](https://youtu.be/0-hTqhm9XhY?si=P7dkWFVyuBPCY1NR) and [Backfills](https://youtu.be/6-S71n-JJ5A?si=EpOBjiaOYysgfpTJ), as in that place, EOS will be used as the NetDriver only. 
+
+
