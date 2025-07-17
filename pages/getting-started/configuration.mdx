@@ -22,6 +22,27 @@ If you turn on the **Automatically setup EIK** option under **EOS Integration Ki
 
 If you prefer to manually configure the plugin, you can add the following configuration to the `DefaultEngine.ini` file.
 
+#### For Unreal Engine 5.6+
+
+<Callout type="info">
+UE 5.6 introduced changes to NetDriver class path formatting. Use the `/Script/` prefix for the DriverClassName.
+</Callout>
+
+```ini
+[OnlineSubsystem]
+DefaultPlatformService=EIK
+
+[OnlineSubsystemEIK]
+bEnabled=true
+
+[/Script/Engine.Engine]
+!NetDriverDefinitions=ClearArray
++NetDriverDefinitions=(DefName="GameNetDriver",DriverClassName="/Script/OnlineSubsystemEIK.NetDriverEIK",DriverClassNameFallback="OnlineSubsystemUtils.IpNetDriver")
++NetDriverDefinitions=(DefName="BeaconNetDriver",DriverClassName="/Script/OnlineSubsystemEIK.NetDriverEIK",DriverClassNameFallback="OnlineSubsystemUtils.IpNetDriver")
+```
+
+#### For Unreal Engine 5.5 and Earlier
+
 ```ini
 [OnlineSubsystem]
 DefaultPlatformService=EIK
@@ -118,4 +139,28 @@ Important: These configuration settings require the engine to be restarted in or
 
 ## Troubleshooting
 
-If you encounter any issues while configuring the plugin or have any questions, feel free to reach out to us on our [Discord server](https://discord.gg/betidestudio).
+### Unreal Engine 5.6 Session Joining Issues
+
+If you're using UE 5.6 and experiencing issues with session joining (e.g., "Your connection to the host has been lost" or "GetAddressInfo failed to resolve host"), this is likely due to the NetDriver class path format change. 
+
+**Symptoms:**
+- Sessions found successfully but joining fails
+- Logs show `GetAddressInfo failed to resolve host` errors
+- Engine falls back to IP NetDriver instead of EOS NetDriver
+
+**Solution:**
+Ensure your `DefaultEngine.ini` uses the correct NetDriver class path format for UE 5.6:
+
+```ini
+# ✅ Correct for UE 5.6+
+DriverClassName="/Script/OnlineSubsystemEIK.NetDriverEIK"
+
+# ❌ Old format (UE 5.5 and earlier)
+DriverClassName="OnlineSubsystemEIK.NetDriverEIK"
+```
+
+Also ensure you're using `[/Script/Engine.Engine]` instead of `[/Script/Engine.GameEngine]` for the NetDriverDefinitions section.
+
+### General Issues
+
+If you encounter any other issues while configuring the plugin or have any questions, feel free to reach out to us on our [Discord server](https://discord.gg/betidestudio).
