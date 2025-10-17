@@ -1,3 +1,5 @@
+import { Callout } from 'nextra/components'
+
 # Beacons with EOS Intergration Kit
 
 EIK provides a way to integrate beacons into your game. 
@@ -8,6 +10,21 @@ EIK provides a way to integrate beacons into your game.
 ### DefaultEngine.ini Configuration
 
 Add the following configuration to your `DefaultEngine.ini` file to enable beacons in your game.
+
+#### For Unreal Engine 5.6+
+
+<Callout type="info">
+UE 5.6 introduced changes to NetDriver class path formatting. Use the `/Script/` prefix for the DriverClassName.
+</Callout>
+
+```ini
+[/Script/Engine.GameEngine]
+!NetDriverDefinitions=ClearArray
++NetDriverDefinitions=(DefName="GameNetDriver",DriverClassName="/Script/OnlineSubsystemEIK.NetDriverEIK",DriverClassNameFallback="OnlineSubsystemUtils.IpNetDriver")
++NetDriverDefinitions=(DefName="BeaconNetDriver",DriverClassName="/Script/OnlineSubsystemEIK.NetDriverEIK",DriverClassNameFallback="OnlineSubsystemUtils.IpNetDriver")
+```
+
+#### For Unreal Engine 5.5 and Earlier
 
 ```ini
 [/Script/Engine.GameEngine]
