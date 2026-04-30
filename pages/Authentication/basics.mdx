@@ -2,13 +2,17 @@ import { Callout } from 'nextra/components'
 
 # Basics of Authentication
 
-<Callout type="info">
-    Please note that using EAS doesn't necessarily mean that you have to use Epic's Website to login, you may use thirdparty tokens and stuff but your account MUST be linked to an Epic Account or else, you will have to link it on the first run.
+There are two different types of authentication/flows that are supported by the EOS SDK.
+
+## Connect Interface
+
+<Callout type="warning">
+    As this method does not use Epic Account Services, the user will not be able to use some features like Overlay, Invites etc.
 </Callout>
 
-There are majorly two types of authentication types/flows that are supported by the EOS SDK.
+[**Connect Interface in Epic Games Documentation**](https://dev.epicgames.com/docs/game-services/eos-connect-interface)
 
-1. [**Connect Interface**](https://dev.epicgames.com/docs/game-services/eos-connect-interface): This is the most basic and easist way to authenticate your users and would be the most common way to authenticate your users. This method is used when you want to authenticate your users `without using Epic Account Services`.
+This is the most basic and easiest way to authenticate your users, and would be the most common way to authenticate them. This method is used when you want to authenticate your users `without using Epic Account Services`.
 
     The most used methods availble for the users under this interface are:
     - **DeviceId**
@@ -19,19 +23,23 @@ There are majorly two types of authentication types/flows that are supported by 
     - **OpenID**
     - **Discord** etc
 
-<Callout type="warning">
-    As this method does not use Epic Account Services, the user will not be able to use some features like Overlay, Invites etc.
-</Callout>
-
 The node to authenticate the user using the `Connect Interface` is `Login using Connect Interface`:
     
     ![picture 0](../../images/a9779bbaf30ae5d946a1fbe9b697a666797e6551465af4a10721399732673b4a.png)
 
+---
 
-<br/><br/>
+## Auth Interface
 
+<Callout type="info">
+    Please note that using EAS doesn't necessarily mean that you have to use Epic's Website to login. You may use thirdparty tokens and stuff, but your account MUST be linked to an Epic Account or else you will have to link it on the first run.
+</Callout>
 
-2. [**Auth Interface**](https://dev.epicgames.com/docs/epic-account-services/auth/auth-interface): This is the most advanced way to authenticate your users and would be used when you want to authenticate your users `using Epic Account Services`.
+[**Auth Interface on Epic Games Documentation**](https://dev.epicgames.com/docs/epic-account-services/auth/auth-interface)
+
+This is the most advanced way to authenticate your users, and would be used when you want to authenticate your users `using Epic Account Services`.
+
+If the user is logging in for the first time with steam, and no epic account is attached, then the user will be prompted to link their account to an Epic Account. This will be a one time process and the user will not be prompted again.
 
     The most used methods availble for the users under this interface are:
     - **Persistent Auth**
@@ -40,5 +48,3 @@ The node to authenticate the user using the `Connect Interface` is `Login using 
     - **Epic Games Launcher(Exchange Code)**
     - **Epic Games Email and Password**
     - **External Auth Methods like Steam**
-
-If the user is logging in for the first time with steam, and no epic account is attached, then the user will be prompted to link their account to an Epic Account. This will be a one time process and the user will not be prompted again.
